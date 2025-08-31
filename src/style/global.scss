@@ -47,10 +47,6 @@ body {
   }
 }
 
-.bg-purple{
-    background-color: v.$purple;
-    color: v.$white;
-}
 
 .bg-yellow{
     background-color: v.$yellow;
@@ -113,7 +109,6 @@ body {
 }
 
 
-/* برای Chrome, Safari, Edge */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

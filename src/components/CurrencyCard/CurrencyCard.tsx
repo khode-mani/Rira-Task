@@ -4,7 +4,7 @@ import { usecurrencyStore } from "@/store/exchange";
 import { ChangeEvent, useEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { INavasanResponse } from "../ConvertSection/ConvertSection";
-import { formatCurrency } from "../../../utils/formatCurrency";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 interface ICurrencyCard {
   currency: string;
@@ -17,38 +17,12 @@ interface ICurrencyInfo {
   symbol: string;
 }
 
-// interface ICurrencyData {
-//   value: string; // قیمت به صورت رشته (مثلاً "103000")
-//   change: number; // تغییر قیمت نسبت به قبل (مثلاً 0 یا +234)
-//   timestamp: number; // زمان به صورت یونیکس
-//   date: string; // تاریخ شمسی با ساعت (مثلاً "1404-06-08 20:58:33")
-// }
-
-// interface INavasanResponse {
-//   // usd_sell: ICurrencyData;
-//   usd_buy: ICurrencyData;
-//   // usd_farda_sell: ICurrencyData;
-//   // usd_farda_buy: ICurrencyData;
-// }
-
 
 function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
   
   const currencyStore = usecurrencyStore();
 
   const [currencyInfo, setCurrencyInfo] = useState<ICurrencyInfo>();
-
-  // const [value, setValue] = useState<INavasanResponse>();
-
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api.navasan.tech/latest/?api_key=freePXahjoaBHaYCFOJxG2uvRn21DHvD"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setValue(data);
-  //     });
-  // }, []);
 
   useEffect(()=>{
     
@@ -64,15 +38,15 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
     const num = Number(e.target.value);
 
     currencyStore.setCurrency(num);
-
+    
     const rate = Number(data.usd_buy.value) * 10;  // برای تبدیل تومان به ریال
     
     if (!isNaN(rate)) {
       if (currency === "IR") {
-        // ریال وارد شده → دلار
+        // دلار به ریال
         currencyStore.convert(rate, true);
       } else {
-        // دلار وارد شده → ریال
+        // ریال به دلار
         currencyStore.convert(rate, false);
       }
     }
@@ -88,7 +62,7 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
         <h2 className="fa-bold text-md px-3">
           {currencyInfo?.title} | {currencyInfo?.symbol}
         </h2>
-        <div className="w-1/3 aspect-square  flex justify-center items-center rounded-full overflow-hidden select-none">
+        <div className="h-full aspect-square  flex justify-center items-center rounded-full overflow-hidden select-none">
           <ReactCountryFlag
             countryCode={currency}
             svg
@@ -102,7 +76,7 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
         dir="ltr"
       >
 
-        <p className="h-1/2 w-full flex justify-between text-gray-300 items-center  text-lg">
+        <p className="h-1/2 w-full flex justify-between text-gray-300 items-center  text-lg px-3">
           {
             currency !== "IR" && (
               <>

@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Currency Converter - USD to IRR
 
-## Getting Started
+اپلیکیشن تبدیل ارز (ریال ↔ دلار) ساخته شده با **Next.js + TypeScript**.  
+از API برای گرفتن نرخ لحظه‌ای استفاده می‌کنه و قابلیت تبدیل دوطرفه، نمایش تغییرات قیمت و تاریخ آپدیت رو داره.
 
-First, run the development server:
+با توجه به تسک ، اپ ساده و خوانا در نظر گرفته شده 
+ و از استفاده چارت ها  و انیمیشن ها پرهیز شده است
 
-```bash
+---
+
+##  ویژگی‌ها
+- دریافت نرخ لحظه‌ای دلار از API
+- تبدیل دوطرفه دلار ↔ ریال و تومان
+- نمایش تغییرات (مثبت / منفی)
+- طراحی واکنش‌گرا (Responsive)
+- هندلینگ خطا و لودینگ
+
+---
+
+## سرویس API
+در این وبسایت از سرویس ای پی ای  نوسان برای دریافت نرخ بروز دلار استفاده شده است ([navasan](https://www.navasan.tech/api/))
+
+## 🛠️ تکنولوژی‌ها
+- [Next.js]
+- [TypeScript]
+- [React]
+- [Tailwind CSS]
+- [Zustand]
+- [Sass]
+
+---
+
+
+##  نصب و اجرا
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
