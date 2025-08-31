@@ -8,7 +8,7 @@ body {
 .bg-pattern {
   position: relative;
   --color: rgba(114, 114, 114, 0.116);
-  // background: linear-gradient(  150deg  , white -200% , black 80% );
+  background: linear-gradient(  150deg  , v.$yellow -900% , black 80% );
   &::after{
     content: '';
     width: 100%;

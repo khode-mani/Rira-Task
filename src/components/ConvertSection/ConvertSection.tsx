@@ -44,20 +44,18 @@ function ConvertSection() {
 
   if (!data) {
     return (
-      <div className="h-1/3 w-full flex justify-center items-center">
+      <div className="h-100 w-full flex justify-center items-center">
         <LoadingSpinner/>
       </div>
     )
   }
 
-  // !data &&  (
-  // )
 
   
 
   return (
-    <>
-        <div className='flex items-center justify-center gap-10 w-1/2 h-1/3 relative'>
+    <div className="h-70 w-full  flex gap-20">
+        <div className='flex items-center justify-center gap-10 w-1/2 h-full relative'>
 
           {data && currencies.map((c , index) => (
             <CurrencyCard key={c} currency={c} index={index} data={data}/>
@@ -72,9 +70,9 @@ function ConvertSection() {
           </button>
         </div>
 
-        <div className='w-1/2 h-1/3 glass-card flex flex-col justify-evenly items-center text-lg divide-y-2 divide-neutral-600 p-4'>
+        <div className='w-1/2 h-full glass-card flex flex-col justify-evenly items-center text-lg divide-y-2 divide-neutral-600 p-4'>
          
-            <p className="h-1/2 w-full flex justify-between items-center">
+            <div className="h-1/2 w-full flex justify-between items-center">
                 
                 <span className="w-1/4 ">مقدار تبدیل شده:</span> 
 
@@ -83,17 +81,18 @@ function ConvertSection() {
                   <p className=" fa-bold text-3xl color-yellow  truncate" dir="ltr">{formatCurrency(curr.converted , currencies[1])}</p>
 
                   {
-                    currencies[1] === "IR" && <p className="text-gray-400 flex justify-end">معادل : <span> {curr.converted / 10} </span> تومان</p>
+                    currencies[1] === "IR" && <p className="text-gray-400 flex justify-end gap-1">معادل : <span> {formatCurrency(curr.converted / 10 , currencies[1] , false)} </span> تومان</p>
                   }
 
                 </div>
-            </p>
+            </div>
         
             <div className="flex h-1/2 w-full  divide-x-2 divide-neutral-600 py-5">
 
                 <p className=" w-1/2  flex justify-between items-center px-2">
                     <span className="w-2/5 text-nowrap">مقدار ورودی:</span> 
-                    <span className="w-3/5 truncate " dir="ltr">{formatCurrency(curr.currency , currencies[0])}</span></p>
+                    <span className="w-3/5 truncate " dir="ltr">{formatCurrency(curr.currency , currencies[0])}</span>
+                </p>
 
                 <p className=" w-1/2  flex justify-between  items-center px-2">
                     <span className="text-nowrap ">آخرین بروز رسانی :</span> 
@@ -103,7 +102,7 @@ function ConvertSection() {
             </div>
 
         </div>
-    </>
+    </div>
   )
 }
 

@@ -81,7 +81,7 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
 
 
   return (
-    <div className={`glass-card w-full h-full flex gap-5 flex-col p-3 ${index > 0 && "z-3"}`}>
+    <div className={`glass-card w-full h-full flex gap-5 flex-col p-3 ${index < 1  && "z-4"}`}>
 
       
       <div className="h-1/3 w-full  flex items-center justify-between  rounded-ful">
@@ -117,7 +117,7 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
           index === 0 && (
             <input
               type="number"
-              placeholder={`مقدار را وارد کنید ${currency === "IR" ? "(ریال)" : ""}`}
+              placeholder={`مقدار را وارد کنید ${currency === "IR" ? "(ریال)" : "(دلار)"}`}
               className="w-full h-1/2   rounded-full outline-0  text-center"
               onChange={valueInp}
               
