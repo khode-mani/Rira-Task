@@ -1,0 +1,121 @@
+@use "../style/colors.scss" as v;
+
+body {
+  background-color: v.$black;
+  color: v.$white;
+}
+
+.bg-pattern {
+  position: relative;
+  --color: rgba(114, 114, 114, 0.116);
+  // background: linear-gradient(  150deg  , white -200% , black 80% );
+  &::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    // background-color: #191a1a;
+    background-image: linear-gradient(
+        0deg,
+        transparent 24%,
+        var(--color) 25%,
+        var(--color) 26%,
+        transparent 27%,
+        transparent 74%,
+        var(--color) 75%,
+        var(--color) 76%,
+        transparent 77%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24%,
+        var(--color) 25%,
+        var(--color) 26%,
+        transparent 27%,
+        transparent 74%,
+        var(--color) 75%,
+        var(--color) 76%,
+        transparent 77%,
+        transparent
+      );
+    background-size: 100px 100px;
+
+  }
+}
+
+.bg-purple{
+    background-color: v.$purple;
+    color: v.$white;
+}
+
+.bg-yellow{
+    background-color: v.$yellow;
+    color: v.$black;
+}
+.color-yellow{
+    color: v.$yellow;
+    // color: v.$black;
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  input{
+    background-color: rgba(128, 128, 128, 0.281);
+    color: white;
+    transition:  .5s ease;
+    &:focus{
+      background-color: rgb(100, 100, 100);
+      color: black;
+    }
+  }
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+
+/* برای Chrome, Safari, Edge */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
