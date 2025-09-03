@@ -80,7 +80,7 @@ function CurrencyCard({ currency  , index ,  data}: ICurrencyCard) {
           {
             currency !== "IR" && (
               <>
-                <span>+{formatCurrency(data.usd_buy.change * 10 , "IR")}</span>
+                <span>{formatCurrency(data.usd_buy.change * 10 , "IR")}</span>
                 <span>تغییر</span>
               </>
             )

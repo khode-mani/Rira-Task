@@ -1,5 +1,20 @@
 import { FaGithub, FaLinkedinIn, FaTelegram, FaWhatsapp } from "react-icons/fa"
 import Container from "../Container/Container"
+import { ReactNode } from "react"
+
+
+interface ILinkItems {
+    title : string;
+    href : string,
+    icon : ReactNode
+}
+
+const linkItems : ILinkItems[] = [
+    {title: "telegram" , href: "https://t.me/IN_G0DWE_TRUST" , icon: <FaTelegram />},
+    {title: "linkedIn" , href: "https://linkedin.com/in/mani-norouzi" , icon: <FaLinkedinIn/> },
+    {title: "whatsApp" , href: "https://wa.me/+989332067945" , icon: <FaWhatsapp/>},
+    {title: "gitHub" , href: "https://github.com/khode-mani" , icon: <FaGithub/>}
+]
 
 function Footer() {
   return (
@@ -17,10 +32,11 @@ function Footer() {
                     <p className="text-xl">راه های ارتباطی</p>
 
                     <div className="flex text-3xl gap-2">
-                        <a href="https://t.me/IN_G0DWE_TRUST" target="_blank"><FaTelegram /></a>
-                        <a href="https://linkedin.com/in/mani-norouzi-5a324826a" target="_blank"><FaLinkedinIn/></a>
-                        <a href="https://wa.me/+989332067945" target="_blank"><FaWhatsapp/></a>
-                        <a href="https://github.com/khode-mani" target="_blank"><FaGithub/></a>
+                        {
+                            linkItems.map((item , index)=>(
+                                <a href={item.href} target="_blank" title={item.title} key={index} > {item.icon} </a>
+                            ))
+                        }
                     </div>
 
                 </div>
